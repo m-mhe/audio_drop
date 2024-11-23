@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(
           titleLarge: TextStyle(fontWeight: FontWeight.w700),
-          titleMedium: TextStyle(),
-          titleSmall: TextStyle(fontSize: 15),
+          titleMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+          titleSmall: TextStyle(fontSize: 15,),
         )
       ),
       home: SongsScreen(),
