@@ -1,15 +1,15 @@
 import 'package:audio_drop/app_ui/songs_screen.dart';
 import 'package:flutter/material.dart';
-import '../app_utils/light_theme_color.dart';
+import '../../app_utils/light_theme_color.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class NavigatorWidget extends StatefulWidget {
+  const NavigatorWidget({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<NavigatorWidget> createState() => _NavigatorWidgetState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _NavigatorWidgetState extends State<NavigatorWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -163,7 +163,7 @@ class _MainScreenState extends State<MainScreen> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       )
                     ],
@@ -184,34 +184,26 @@ class _MainScreenState extends State<MainScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "The Song Title",
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium!
-                        .copyWith(color: LightThemeColor.blueOne),
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       IconButton(
                           onPressed: () {},
-                          style: IconButton.styleFrom(backgroundColor: LightThemeColor.blueOne),
+                          style: IconButton.styleFrom(backgroundColor: LightThemeColor.blueTwo),
                           icon: Icon(
                             Icons.skip_previous_rounded,
                             color: LightThemeColor.blueThree,
                           )),
                       IconButton(
                           onPressed: () {},
-                          style: IconButton.styleFrom(backgroundColor: LightThemeColor.blueOne),
+                          style: IconButton.styleFrom(backgroundColor: LightThemeColor.blueTwo),
                           icon: Icon(
                             Icons.play_arrow_rounded,
                             color: LightThemeColor.blueThree,
                           )),
                       IconButton(
                           onPressed: () {},
-                          style: IconButton.styleFrom(backgroundColor: LightThemeColor.blueOne),
+                          style: IconButton.styleFrom(backgroundColor: LightThemeColor.blueTwo),
                           icon: Icon(
                             Icons.skip_next_rounded,
                             color: LightThemeColor.blueThree,

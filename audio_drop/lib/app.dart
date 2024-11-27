@@ -1,4 +1,4 @@
-import 'package:audio_drop/app_ui/main_screen.dart';
+import 'package:audio_drop/app_ui/widgets/navigator_widget.dart';
 import 'package:audio_drop/app_utils/light_theme_color.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           titleSmall: TextStyle(fontSize: 15,),
         )
       ),
-      home: MainScreen(),
+      home: const NavigatorWidget(),
     );
   }
 }

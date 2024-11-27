@@ -39,7 +39,7 @@ class SongsScreen extends StatelessWidget {
                                     .height /
                                     11.5,
                                 decoration: BoxDecoration(
-                                    image: DecorationImage(
+                                    image: const DecorationImage(
                                         image: AssetImage(
                                             "assets/images/default_music_thumnail.jpg"),
                                         fit: BoxFit.cover),
