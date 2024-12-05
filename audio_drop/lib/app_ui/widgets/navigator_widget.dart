@@ -77,7 +77,7 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
                                       .textTheme
                                       .titleSmall!
                                       .copyWith(
-                                      color: LightThemeColor.blueFour),
+                                          color: LightThemeColor.blueFour),
                                 ),
                               ),
                             ),
@@ -176,6 +176,11 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
               height: MediaQuery.sizeOf(context).height / 10,
               width: double.maxFinite,
               decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/default_music_thumnail.jpg'),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                        LightThemeColor.blueTwo, BlendMode.softLight)),
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25)),
@@ -189,28 +194,30 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
                     children: [
                       IconButton(
                           onPressed: () {},
-                          style: IconButton.styleFrom(backgroundColor: LightThemeColor.blueTwo),
+                          style: IconButton.styleFrom(
+                              backgroundColor: LightThemeColor.blueOne),
                           icon: Icon(
                             Icons.skip_previous_rounded,
                             color: LightThemeColor.blueThree,
                           )),
                       IconButton(
                           onPressed: () {},
-                          style: IconButton.styleFrom(backgroundColor: LightThemeColor.blueTwo),
+                          style: IconButton.styleFrom(
+                              backgroundColor: LightThemeColor.blueOne),
                           icon: Icon(
                             Icons.play_arrow_rounded,
                             color: LightThemeColor.blueThree,
                           )),
                       IconButton(
                           onPressed: () {},
-                          style: IconButton.styleFrom(backgroundColor: LightThemeColor.blueTwo),
+                          style: IconButton.styleFrom(
+                              backgroundColor: LightThemeColor.blueOne),
                           icon: Icon(
                             Icons.skip_next_rounded,
                             color: LightThemeColor.blueThree,
                           )),
                     ],
                   ),
-
                 ],
               ),
             ),
