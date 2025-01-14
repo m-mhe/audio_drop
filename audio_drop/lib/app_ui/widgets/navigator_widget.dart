@@ -176,6 +176,7 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
               height: MediaQuery.sizeOf(context).height / 10,
               width: double.maxFinite,
               decoration: BoxDecoration(
+                image:  DecorationImage(image: AssetImage('assets/images/default_music_thumbnail.jpg',), fit: BoxFit.cover, colorFilter: ColorFilter.mode(LightThemeColor.blueThree, BlendMode.multiply), ),
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25)),
@@ -213,10 +214,6 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
                           )),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: Text('Song Title Song Title Song Title Song Title Song Title Song Title Song Title', style: Theme.of(context).textTheme.titleSmall!.copyWith(color: LightThemeColor.blueOne),maxLines: 1,overflow: TextOverflow.ellipsis,),
-                  )
                 ],
               ),
             ),
