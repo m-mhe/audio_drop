@@ -1,15 +1,15 @@
 import 'package:audio_drop/app_ui/widgets/navigator_widget.dart';
 import 'package:audio_drop/app_utils/light_theme_color.dart';
+import 'package:audio_drop/controller_bindings.dart';
 import 'package:flutter/material.dart';
-
-import 'app_ui/songs_screen.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Audio Drop',
       theme: ThemeData(
         scaffoldBackgroundColor: LightThemeColor.blueFour,
@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       home: const NavigatorWidget(),
+      initialBinding: ControllerBindings(),
     );
   }
 }

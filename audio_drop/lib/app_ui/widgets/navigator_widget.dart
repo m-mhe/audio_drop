@@ -1,5 +1,11 @@
+import 'package:audio_drop/app_ui/albums_screen.dart';
+import 'package:audio_drop/app_ui/home_screen.dart';
+import 'package:audio_drop/app_ui/playlists_screen.dart';
 import 'package:audio_drop/app_ui/songs_screen.dart';
+import 'package:audio_drop/app_utils/image_paths.dart';
+import 'package:audio_drop/controllers/nav_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../app_utils/light_theme_color.dart';
 
 class NavigatorWidget extends StatefulWidget {
@@ -10,6 +16,13 @@ class NavigatorWidget extends StatefulWidget {
 }
 
 class _NavigatorWidgetState extends State<NavigatorWidget> {
+  final List<Widget> _screenList = [
+    const HomeScreen(),
+    const SongsScreen(),
+    const PlaylistsScreen(),
+    const AlbumsScreen()
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,151 +45,165 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
         ),
         child: Column(
           children: [
-            Expanded(
-              child: Column(
-                children: [
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.sizeOf(context).height / 23,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: LightThemeColor.blueThree,
+            GetBuilder<NavController>(builder: (controller) {
+              return Expanded(
+                child: Column(
+                  children: [
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: MediaQuery.sizeOf(context).height / 23,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              const SizedBox(
+                                width: 10,
                               ),
-                              child: Center(
-                                child: Text(
-                                  'Home',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall!
-                                      .copyWith(color: LightThemeColor.blueTwo),
+                              InkWell(
+                                onTap: () {
+                                  controller.changeIndex(0);
+                                },
+                                child: Container(
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: controller.currentIndex == 0
+                                        ? LightThemeColor.red
+                                        : LightThemeColor.blueThree,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Home',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall!
+                                          .copyWith(
+                                              color: controller.currentIndex ==
+                                                      0
+                                                  ? LightThemeColor.blueFour
+                                                  : LightThemeColor.blueTwo),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: LightThemeColor.red,
+                              const SizedBox(
+                                width: 10,
                               ),
-                              child: Center(
-                                child: Text(
-                                  'Song',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall!
-                                      .copyWith(
-                                          color: LightThemeColor.blueFour),
+                              InkWell(
+                                onTap: () {
+                                  controller.changeIndex(1);
+                                },
+                                child: Container(
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: controller.currentIndex == 1
+                                        ? LightThemeColor.red
+                                        : LightThemeColor.blueThree,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Song',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall!
+                                          .copyWith(
+                                              color: controller.currentIndex ==
+                                                      1
+                                                  ? LightThemeColor.blueFour
+                                                  : LightThemeColor.blueTwo),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: LightThemeColor.blueThree,
+                              const SizedBox(
+                                width: 10,
                               ),
-                              child: Center(
-                                child: Text(
-                                  'PlayLists',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall!
-                                      .copyWith(color: LightThemeColor.blueTwo),
+                              InkWell(
+                                onTap: () {
+                                  controller.changeIndex(2);
+                                },
+                                child: Container(
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: controller.currentIndex == 2
+                                        ? LightThemeColor.red
+                                        : LightThemeColor.blueThree,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'PlayLists',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall!
+                                          .copyWith(
+                                              color: controller.currentIndex ==
+                                                      2
+                                                  ? LightThemeColor.blueFour
+                                                  : LightThemeColor.blueTwo),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: LightThemeColor.blueThree,
+                              const SizedBox(
+                                width: 10,
                               ),
-                              child: Center(
-                                child: Text(
-                                  'Folders',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall!
-                                      .copyWith(color: LightThemeColor.blueTwo),
+                              InkWell(
+                                onTap: () {
+                                  controller.changeIndex(3);
+                                },
+                                child: Container(
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: controller.currentIndex == 3
+                                        ? LightThemeColor.red
+                                        : LightThemeColor.blueThree,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Albums',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall!
+                                          .copyWith(
+                                              color: controller.currentIndex ==
+                                                      3
+                                                  ? LightThemeColor.blueFour
+                                                  : LightThemeColor.blueTwo),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: LightThemeColor.blueThree,
+                              const SizedBox(
+                                width: 10,
                               ),
-                              child: Center(
-                                child: Text(
-                                  'Artists',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall!
-                                      .copyWith(color: LightThemeColor.blueTwo),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: LightThemeColor.blueThree,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Albums',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall!
-                                      .copyWith(color: LightThemeColor.blueTwo),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      )
-                    ],
-                  ),
-                  const SongsScreen()
-                ],
-              ),
-            ),
+                        const SizedBox(
+                          height: 10,
+                        )
+                      ],
+                    ),
+                    _screenList[controller.currentIndex]
+                  ],
+                ),
+              );
+            }),
             Container(
               height: MediaQuery.sizeOf(context).height / 10,
               width: double.maxFinite,
               decoration: BoxDecoration(
-                image:  DecorationImage(image: AssetImage('assets/images/default_music_thumbnail.jpg',), fit: BoxFit.cover, colorFilter: ColorFilter.mode(LightThemeColor.blueThree, BlendMode.multiply), ),
+                image: DecorationImage(
+                  image: const AssetImage(
+                    ImagePaths.appLogo,
+                  ),
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                      LightThemeColor.blueThree, BlendMode.multiply),
+                ),
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25)),
@@ -205,13 +232,14 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
                             color: LightThemeColor.blueThree,
                           )),
                       IconButton(
-                          onPressed: () {},
-                          style: IconButton.styleFrom(
-                              backgroundColor: LightThemeColor.blueOne),
-                          icon: Icon(
-                            Icons.skip_next_rounded,
-                            color: LightThemeColor.blueThree,
-                          )),
+                        onPressed: () {},
+                        style: IconButton.styleFrom(
+                            backgroundColor: LightThemeColor.blueOne),
+                        icon: Icon(
+                          Icons.skip_next_rounded,
+                          color: LightThemeColor.blueThree,
+                        ),
+                      ),
                     ],
                   ),
                 ],
