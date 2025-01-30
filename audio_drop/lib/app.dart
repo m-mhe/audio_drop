@@ -17,10 +17,24 @@ class MyApp extends StatelessWidget {
           color: LightThemeColor.blueThree,
           foregroundColor: LightThemeColor.blueOne
         ),
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           titleLarge: TextStyle(fontWeight: FontWeight.w700),
           titleMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
           titleSmall: TextStyle(fontSize: 15,),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(7),
+            borderSide: BorderSide(
+              color: LightThemeColor.blueOne
+            )
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(14),
+              borderSide: BorderSide(
+                  color: LightThemeColor.blueTwo
+              )
+          )
         )
       ),
       home: const NavigatorWidget(),

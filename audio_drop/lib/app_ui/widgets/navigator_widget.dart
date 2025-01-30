@@ -1,6 +1,7 @@
 import 'package:audio_drop/app_ui/albums_screen.dart';
 import 'package:audio_drop/app_ui/home_screen.dart';
 import 'package:audio_drop/app_ui/playlists_screen.dart';
+import 'package:audio_drop/app_ui/search_screen.dart';
 import 'package:audio_drop/app_ui/songs_screen.dart';
 import 'package:audio_drop/app_utils/image_paths.dart';
 import 'package:audio_drop/controllers/nav_controller.dart';
@@ -35,7 +36,9 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
               .copyWith(color: LightThemeColor.blueOne),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          IconButton(onPressed: () {
+            Get.to(const SearchScreen());
+          }, icon: const Icon(Icons.search)),
           IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
         ],
       ),
