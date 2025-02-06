@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           )
         )
       ),
-      home: const NavigatorWidget(),
+      home: NavigatorWidget(),
       initialBinding: ControllerBindings(),
     );
   }

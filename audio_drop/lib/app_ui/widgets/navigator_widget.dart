@@ -9,14 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../app_utils/light_theme_color.dart';
 
-class NavigatorWidget extends StatefulWidget {
-  const NavigatorWidget({super.key});
+class NavigatorWidget extends StatelessWidget {
+  NavigatorWidget({super.key});
 
-  @override
-  State<NavigatorWidget> createState() => _NavigatorWidgetState();
-}
-
-class _NavigatorWidgetState extends State<NavigatorWidget> {
   final List<Widget> _screenList = [
     const HomeScreen(),
     const SongsScreen(),
