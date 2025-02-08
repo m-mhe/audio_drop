@@ -26,6 +26,7 @@ class AudioPlayerScreen extends StatelessWidget {
           children: [
             song != null
                 ? QueryArtworkWidget(
+              artworkQuality: FilterQuality.high,
                     id: song!.id,
                     type: ArtworkType.AUDIO,
                     artworkFit: BoxFit.cover,

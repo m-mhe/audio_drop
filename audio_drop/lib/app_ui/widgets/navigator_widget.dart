@@ -197,7 +197,7 @@ class NavigatorWidget extends StatelessWidget {
             }),
             InkWell(
               onTap: () {
-                Get.to(AudioPlayerScreen());
+                Get.to(AudioPlayerScreen(), transition: Transition.downToUp);
               },
               child: Container(
                 height: MediaQuery.sizeOf(context).height / 10,
