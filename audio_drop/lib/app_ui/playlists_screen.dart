@@ -2,7 +2,6 @@ import 'package:audio_drop/controllers/audio_fetch_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
-
 import '../app_utils/image_paths.dart';
 import '../app_utils/light_theme_color.dart';
 
@@ -30,11 +29,23 @@ class PlaylistsScreen extends StatelessWidget {
               return FittedBox(
                 child: Column(
                   children: [
-                    QueryArtworkWidget(id: controller.playlists[i].id, type: ArtworkType.PLAYLIST,
+                    QueryArtworkWidget(
+                      quality: 25,
+                      id: controller.playlists[i].id,
+                      type: ArtworkType.PLAYLIST,
                       artworkBorder: BorderRadius.circular(7),
                       artworkWidth: MediaQuery.sizeOf(context).width / 3.5,
                       artworkHeight: MediaQuery.sizeOf(context).width / 3.5,
                       artworkFit: BoxFit.cover,
+                      nullArtworkWidget: Container(
+                        height: (MediaQuery.sizeOf(context).width / 3.5),
+                        width: (MediaQuery.sizeOf(context).width / 3.5),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(7),
+                            image: DecorationImage(
+                                image: AssetImage(ImagePaths.defaultThumbnail),
+                                fit: BoxFit.fitWidth)),
+                      ),
                     ),
                     /*Container(
                       height: (MediaQuery.sizeOf(context).width / 3.5),

@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:get/get.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -29,7 +28,7 @@ class AudioFetchController extends GetxController{
   Future<void> fetchAudios()async{
     bool permission = await _requestPermission();
     if(!permission){
-      fetchAudios();
+      return;
     }else{
       _audios = await _audioQuery.querySongs(sortType: SongSortType.DATE_ADDED);
       update();
@@ -39,7 +38,7 @@ class AudioFetchController extends GetxController{
   Future<void> fetchPlaylist()async{
     bool permission = await _requestPermission();
     if(!permission){
-      fetchAudios();
+      return;
     }else{
       _playlists = await _audioQuery.queryPlaylists(sortType: PlaylistSortType.DATE_ADDED);
       update();
@@ -49,7 +48,7 @@ class AudioFetchController extends GetxController{
   Future<void> fetchAlbum()async{
     bool permission = await _requestPermission();
     if(!permission){
-      fetchAudios();
+      return;
     }else{
       _albums = await _audioQuery.queryAlbums(sortType:AlbumSortType.NUM_OF_SONGS);
       update();

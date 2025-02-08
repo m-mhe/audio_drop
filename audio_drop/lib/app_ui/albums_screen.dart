@@ -30,21 +30,23 @@ class AlbumsScreen extends StatelessWidget {
                   return FittedBox(
                     child: Column(
                       children: [
-                        QueryArtworkWidget(id: controller.albums[i].id, type: ArtworkType.ALBUM,
+                        QueryArtworkWidget(
+                          quality: 25,
+                          id: controller.albums[i].id, type: ArtworkType.ALBUM,
                           artworkBorder: BorderRadius.circular(7),
                           artworkWidth: MediaQuery.sizeOf(context).width / 3.5,
                           artworkHeight: MediaQuery.sizeOf(context).width / 3.5,
                           artworkFit: BoxFit.cover,
+                          nullArtworkWidget: Container(
+                            height: (MediaQuery.sizeOf(context).width / 3.5),
+                            width: (MediaQuery.sizeOf(context).width / 3.5),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(7),
+                                image: DecorationImage(
+                                    image: AssetImage(ImagePaths.defaultThumbnail),
+                                    fit: BoxFit.fitWidth)),
+                          ),
                         ),
-                        /*Container(
-                          height: (MediaQuery.sizeOf(context).width / 3.5),
-                          width: (MediaQuery.sizeOf(context).width / 3.5),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(7),
-                              image: DecorationImage(
-                                  image: AssetImage(ImagePaths.defaultThumbnail),
-                                  fit: BoxFit.fitWidth)),
-                        ),*/
                         SizedBox(
                           width: (MediaQuery.sizeOf(context).width / 3.5),
                           child: Text(

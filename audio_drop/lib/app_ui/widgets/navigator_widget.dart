@@ -1,13 +1,16 @@
 import 'package:audio_drop/app_ui/albums_screen.dart';
+import 'package:audio_drop/app_ui/audio_player_screen.dart';
 import 'package:audio_drop/app_ui/home_screen.dart';
 import 'package:audio_drop/app_ui/playlists_screen.dart';
 import 'package:audio_drop/app_ui/search_screen.dart';
 import 'package:audio_drop/app_ui/songs_screen.dart';
 import 'package:audio_drop/app_utils/image_paths.dart';
+import 'package:audio_drop/controllers/audio_pay_controller.dart';
 import 'package:audio_drop/controllers/nav_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../app_utils/light_theme_color.dart';
+import 'package:get/get.dart';
 
 class NavigatorWidget extends StatelessWidget {
   NavigatorWidget({super.key});
@@ -31,9 +34,11 @@ class NavigatorWidget extends StatelessWidget {
               .copyWith(color: LightThemeColor.blueOne),
         ),
         actions: [
-          IconButton(onPressed: () {
-            Get.to(const SearchScreen());
-          }, icon: const Icon(Icons.search)),
+          IconButton(
+              onPressed: () {
+                Get.to(const SearchScreen());
+              },
+              icon: const Icon(Icons.search)),
           IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
         ],
       ),
@@ -190,57 +195,74 @@ class NavigatorWidget extends StatelessWidget {
                 ),
               );
             }),
-            Container(
-              height: MediaQuery.sizeOf(context).height / 10,
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(
-                    ImagePaths.appLogo,
+            InkWell(
+              onTap: () {
+                Get.to(AudioPlayerScreen());
+              },
+              child: Container(
+                height: MediaQuery.sizeOf(context).height / 10,
+                width: double.maxFinite,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: const AssetImage(
+                      ImagePaths.appLogo,
+                    ),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                        LightThemeColor.blueThree, BlendMode.multiply),
                   ),
-                  fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(
-                      LightThemeColor.blueThree, BlendMode.multiply),
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25)),
+                  color: LightThemeColor.blueThree,
                 ),
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25)),
-                color: LightThemeColor.blueThree,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      IconButton(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        IconButton(
+                            onPressed: () {},
+                            style: IconButton.styleFrom(
+                                backgroundColor: LightThemeColor.blueOne),
+                            icon: Icon(
+                              Icons.skip_previous_rounded,
+                              color: LightThemeColor.blueThree,
+                            )),
+                        GetBuilder<AudioPayController>(builder: (controller) {
+                          return IconButton(
+                              onPressed: () {
+                                if (controller.isPlaying) {
+                                  controller.pause();
+                                } else {
+                                  if (controller.nowPlaying != null) {
+                                    controller.play(controller.nowPlaying!);
+                                  }
+                                }
+                              },
+                              style: IconButton.styleFrom(
+                                  backgroundColor: LightThemeColor.blueOne),
+                              icon: Icon(
+                                controller.isPlaying
+                                    ? Icons.pause_rounded
+                                    : Icons.play_arrow_rounded,
+                                color: LightThemeColor.blueThree,
+                              ));
+                        }),
+                        IconButton(
                           onPressed: () {},
                           style: IconButton.styleFrom(
                               backgroundColor: LightThemeColor.blueOne),
                           icon: Icon(
-                            Icons.skip_previous_rounded,
+                            Icons.skip_next_rounded,
                             color: LightThemeColor.blueThree,
-                          )),
-                      IconButton(
-                          onPressed: () {},
-                          style: IconButton.styleFrom(
-                              backgroundColor: LightThemeColor.blueOne),
-                          icon: Icon(
-                            Icons.play_arrow_rounded,
-                            color: LightThemeColor.blueThree,
-                          )),
-                      IconButton(
-                        onPressed: () {},
-                        style: IconButton.styleFrom(
-                            backgroundColor: LightThemeColor.blueOne),
-                        icon: Icon(
-                          Icons.skip_next_rounded,
-                          color: LightThemeColor.blueThree,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
