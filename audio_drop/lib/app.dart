@@ -1,3 +1,4 @@
+import 'package:audio_drop/app_ui/splash_screen.dart';
 import 'package:audio_drop/app_ui/widgets/navigator_widget.dart';
 import 'package:audio_drop/app_utils/light_theme_color.dart';
 import 'package:audio_drop/controller_bindings.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
           )
         )
       ),
-      home: NavigatorWidget(),
+      home: const SplashScreen(),
       initialBinding: ControllerBindings(),
     );
   }
