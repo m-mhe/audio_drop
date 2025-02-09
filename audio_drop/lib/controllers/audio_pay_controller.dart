@@ -1,28 +1,43 @@
-import 'dart:io';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query_forked/on_audio_query.dart';
 
-class AudioPayController extends GetxController{
+class AudioPayController extends GetxController {
+  final AudioPlayer audioPlayer = AudioPlayer();
 
-  final AudioPlayer _audioPlayer = AudioPlayer();
-
-  SongModel? _nowPlaying = null;
+  SongModel? _nowPlaying;
+  int _index = 0;
   bool _isPlaying = false;
+  Duration? _audioDuration;
 
   SongModel? get nowPlaying => _nowPlaying;
+
   bool get isPlaying => _isPlaying;
 
-  Future<void> play(SongModel audio) async{
-    _nowPlaying = audio;
-    _isPlaying = true;
-    update();
-    await _audioPlayer.setAudioSource(AudioSource.uri(Uri.parse(_nowPlaying!.uri!)));
-    await _audioPlayer.play();
+  Duration? get audioDuration => _audioDuration;
+
+  int get index => _index;
+
+  Future<void> play(SongModel audio, index) async {
+    if (_nowPlaying != null && _nowPlaying!.id == audio.id) {
+      _isPlaying = true;
+      update();
+      await audioPlayer.play();
+    } else {
+      _nowPlaying = audio;
+      _index = index;
+      await audioPlayer
+          .setAudioSource(AudioSource.uri(Uri.parse(_nowPlaying!.uri!)));
+      _audioDuration = audioPlayer.duration;
+      _isPlaying = true;
+      update();
+      await audioPlayer.play();
+    }
   }
-  Future<void> pause() async{
+
+  Future<void> pause() async {
     _isPlaying = false;
     update();
-    await _audioPlayer.pause();
+    await audioPlayer.pause();
   }
 }

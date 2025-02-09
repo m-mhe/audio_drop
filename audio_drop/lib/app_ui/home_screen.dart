@@ -20,15 +20,30 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
-                  child: Text("New added", style: Theme.of(context).textTheme.titleLarge!.copyWith(color: LightThemeColor.blueOne),),
+                  child: Text(
+                    "New added",
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(color: LightThemeColor.blueOne),
+                  ),
                 ),
                 InkWell(
-                  onTap: (){
-                    Get.to(CustomizedSongListScreen(title: 'New added',));
+                  onTap: () {
+                    Get.to(const CustomizedSongListScreen(
+                      title: 'New added',
+                    ));
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
-                    child: Text("See all", style: Theme.of(context).textTheme.titleSmall!.copyWith(color: LightThemeColor.red),),
+                    padding:
+                        const EdgeInsets.only(right: 10, top: 10, bottom: 10),
+                    child: Text(
+                      "See all",
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .copyWith(color: LightThemeColor.red),
+                    ),
                   ),
                 ),
               ],
@@ -39,15 +54,30 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
-                  child: Text("Most played", style: Theme.of(context).textTheme.titleLarge!.copyWith(color: LightThemeColor.blueOne),),
+                  child: Text(
+                    "Most played",
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(color: LightThemeColor.blueOne),
+                  ),
                 ),
                 InkWell(
-                  onTap: (){
-                    Get.to(CustomizedSongListScreen(title: 'Most played',));
+                  onTap: () {
+                    Get.to(const CustomizedSongListScreen(
+                      title: 'Most played',
+                    ));
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
-                    child: Text("See all", style: Theme.of(context).textTheme.titleSmall!.copyWith(color: LightThemeColor.red),),
+                    padding:
+                        const EdgeInsets.only(right: 10, top: 10, bottom: 10),
+                    child: Text(
+                      "See all",
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .copyWith(color: LightThemeColor.red),
+                    ),
                   ),
                 ),
               ],
@@ -58,15 +88,30 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
-                  child: Text("Recently played", style: Theme.of(context).textTheme.titleLarge!.copyWith(color: LightThemeColor.blueOne),),
+                  child: Text(
+                    "Recently played",
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(color: LightThemeColor.blueOne),
+                  ),
                 ),
                 InkWell(
-                  onTap: (){
-                    Get.to(CustomizedSongListScreen(title: 'Recently played',));
+                  onTap: () {
+                    Get.to(const CustomizedSongListScreen(
+                      title: 'Recently played',
+                    ));
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
-                    child: Text("See all", style: Theme.of(context).textTheme.titleSmall!.copyWith(color: LightThemeColor.red),),
+                    padding:
+                        const EdgeInsets.only(right: 10, top: 10, bottom: 10),
+                    child: Text(
+                      "See all",
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .copyWith(color: LightThemeColor.red),
+                    ),
                   ),
                 ),
               ],
@@ -77,15 +122,30 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
-                  child: Text("Not played", style: Theme.of(context).textTheme.titleLarge!.copyWith(color: LightThemeColor.blueOne),),
+                  child: Text(
+                    "Not played",
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(color: LightThemeColor.blueOne),
+                  ),
                 ),
                 InkWell(
-                  onTap: (){
-                    Get.to(CustomizedSongListScreen(title: 'Not played',));
+                  onTap: () {
+                    Get.to(const CustomizedSongListScreen(
+                      title: 'Not played',
+                    ));
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
-                    child: Text("See all", style: Theme.of(context).textTheme.titleSmall!.copyWith(color: LightThemeColor.red),),
+                    padding:
+                        const EdgeInsets.only(right: 10, top: 10, bottom: 10),
+                    child: Text(
+                      "See all",
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .copyWith(color: LightThemeColor.red),
+                    ),
                   ),
                 ),
               ],
@@ -97,5 +157,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-

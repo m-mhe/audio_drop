@@ -10,7 +10,6 @@ import 'package:audio_drop/controllers/nav_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../app_utils/light_theme_color.dart';
-import 'package:get/get.dart';
 
 class NavigatorWidget extends StatelessWidget {
   NavigatorWidget({super.key});
@@ -197,7 +196,8 @@ class NavigatorWidget extends StatelessWidget {
             }),
             InkWell(
               onTap: () {
-                Get.to(AudioPlayerScreen(), transition: Transition.downToUp);
+                Get.to(const AudioPlayerScreen(),
+                    transition: Transition.downToUp);
               },
               child: Container(
                 height: MediaQuery.sizeOf(context).height / 10,
@@ -237,7 +237,8 @@ class NavigatorWidget extends StatelessWidget {
                                   controller.pause();
                                 } else {
                                   if (controller.nowPlaying != null) {
-                                    controller.play(controller.nowPlaying!);
+                                    controller.play(controller.nowPlaying!,
+                                        controller.index);
                                   }
                                 }
                               },

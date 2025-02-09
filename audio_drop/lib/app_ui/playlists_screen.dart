@@ -23,14 +23,15 @@ class PlaylistsScreen extends StatelessWidget {
                 .copyWith(color: LightThemeColor.blueOne.withAlpha(100)),
           )),
           child: GridView.builder(
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3),
             itemBuilder: (BuildContext context, int i) {
               return FittedBox(
                 child: Column(
                   children: [
                     QueryArtworkWidget(
                       quality: 25,
+                      size: 300,
                       id: controller.playlists[i].id,
                       type: ArtworkType.PLAYLIST,
                       artworkBorder: BorderRadius.circular(7),
@@ -42,7 +43,7 @@ class PlaylistsScreen extends StatelessWidget {
                         width: (MediaQuery.sizeOf(context).width / 3.5),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(7),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                                 image: AssetImage(ImagePaths.defaultThumbnail),
                                 fit: BoxFit.fitWidth)),
                       ),

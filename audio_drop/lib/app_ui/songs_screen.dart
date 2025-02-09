@@ -15,7 +15,7 @@ class SongsScreen extends StatelessWidget {
       child: RefreshIndicator(
         color: LightThemeColor.red,
         backgroundColor: Colors.white,
-        onRefresh: ()async {
+        onRefresh: () async {
           return await Get.find<AudioFetchController>().fetchAudios();
         },
         child: GetBuilder<AudioFetchController>(builder: (controller) {
@@ -23,20 +23,21 @@ class SongsScreen extends StatelessWidget {
             visible: controller.audios.isNotEmpty,
             replacement: Center(
                 child: Text(
-                  "No Song Found",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(color: LightThemeColor.blueOne.withAlpha(100)),
-                )),
+              "No Song Found",
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(color: LightThemeColor.blueOne.withAlpha(100)),
+            )),
             child: ListView.builder(
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   child: InkWell(
-                    onTap: (){
-                      Get.find<AudioPayController>().play(controller.audios[index]);
-                      Get.to(AudioPlayerScreen());
+                    onTap: () {
+                      Get.find<AudioPayController>()
+                          .play(controller.audios[index], index);
+                      Get.to(const AudioPlayerScreen());
                     },
                     child: Card(
                       shadowColor: LightThemeColor.blueFour,
@@ -53,15 +54,20 @@ class SongsScreen extends StatelessWidget {
                                     top: 10, bottom: 10, left: 10, right: 10),
                                 child: QueryArtworkWidget(
                                   quality: 20,
+                                  size: 200,
                                   id: controller.audios[index].id,
                                   type: ArtworkType.AUDIO,
                                   artworkBorder: BorderRadius.circular(7),
-                                  artworkWidth: MediaQuery.sizeOf(context).height / 13,
-                                  artworkHeight: MediaQuery.sizeOf(context).height / 13,
+                                  artworkWidth:
+                                      MediaQuery.sizeOf(context).height / 13,
+                                  artworkHeight:
+                                      MediaQuery.sizeOf(context).height / 13,
                                   artworkFit: BoxFit.cover,
                                   nullArtworkWidget: Container(
-                                    height: MediaQuery.sizeOf(context).height / 13,
-                                    width: MediaQuery.sizeOf(context).height / 13,
+                                    height:
+                                        MediaQuery.sizeOf(context).height / 13,
+                                    width:
+                                        MediaQuery.sizeOf(context).height / 13,
                                     decoration: BoxDecoration(
                                         image: const DecorationImage(
                                             image: AssetImage(
@@ -82,7 +88,8 @@ class SongsScreen extends StatelessWidget {
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleMedium!
-                                          .copyWith(color: LightThemeColor.blueOne),
+                                          .copyWith(
+                                              color: LightThemeColor.blueOne),
                                     ),
                                     Text(
                                       controller.audios[index].artist ?? "",
@@ -92,7 +99,7 @@ class SongsScreen extends StatelessWidget {
                                           .titleSmall!
                                           .copyWith(
                                             color: LightThemeColor.blueOne
-                                                .withOpacity(0.5),
+                                                .withAlpha(127),
                                           ),
                                     ),
                                   ],

@@ -12,27 +12,31 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  Future<void> _initialize() async{
+  Future<void> _initialize() async {
     await Get.find<AudioFetchController>().fetchAudios();
     await Get.find<AudioFetchController>().fetchPlaylist();
     await Get.find<AudioFetchController>().fetchAlbum();
-    Get.to(NavigatorWidget());
+    Get.off(NavigatorWidget());
   }
+
   @override
   void initState() {
     super.initState();
     _initialize();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Image
-            .asset(ImagePaths.appLogo, height: MediaQuery.sizeOf(context)
-            .height / 2, width: MediaQuery
-          .sizeOf(context)
-          .height / 2, fit: BoxFit.cover,),
-    ),);
+        child: Image.asset(
+          ImagePaths.appLogo,
+          height: MediaQuery.sizeOf(context).height / 3,
+          width: MediaQuery.sizeOf(context).height / 3,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
   }
 }

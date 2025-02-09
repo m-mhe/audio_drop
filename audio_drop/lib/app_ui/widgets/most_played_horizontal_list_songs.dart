@@ -10,7 +10,7 @@ class MostPlayedHorizontalListSongs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: (MediaQuery.sizeOf(context).width / 3.5)+24,
+      height: (MediaQuery.sizeOf(context).width / 3.5) + 24,
       child: ListView.builder(
           itemCount: 69,
           scrollDirection: Axis.horizontal,
@@ -20,25 +20,21 @@ class MostPlayedHorizontalListSongs extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    height:
-                    (MediaQuery.sizeOf(context).width / 3.5),
+                    height: (MediaQuery.sizeOf(context).width / 3.5),
                     width: (MediaQuery.sizeOf(context).width / 3.5),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(7),
-                        image: DecorationImage(
-                            image:
-                            AssetImage(ImagePaths.defaultThumbnail),
+                        image: const DecorationImage(
+                            image: AssetImage(ImagePaths.defaultThumbnail),
                             fit: BoxFit.fitWidth)),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                          height: ((MediaQuery.sizeOf(context).width /
-                              3.5) /
-                              1.1) /
-                              2.5,
-                          width:
-                          (MediaQuery.sizeOf(context).width / 3.5),
+                          height:
+                              ((MediaQuery.sizeOf(context).width / 3.5) / 1.1) /
+                                  2.5,
+                          width: (MediaQuery.sizeOf(context).width / 3.5),
                           decoration: BoxDecoration(
                               color: LightThemeColor.blueTwo,
                               borderRadius: const BorderRadius.only(

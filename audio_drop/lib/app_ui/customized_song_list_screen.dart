@@ -4,6 +4,7 @@ import '../app_utils/light_theme_color.dart';
 
 class CustomizedSongListScreen extends StatelessWidget {
   const CustomizedSongListScreen({super.key, required this.title});
+
   final String title;
 
   @override
@@ -64,9 +65,9 @@ class CustomizedSongListScreen extends StatelessWidget {
                                     .textTheme
                                     .titleSmall!
                                     .copyWith(
-                                  color: LightThemeColor.blueOne
-                                      .withOpacity(0.5),
-                                ),
+                                      color: LightThemeColor.blueOne
+                                          .withAlpha(127),
+                                    ),
                               ),
                             ],
                           ),

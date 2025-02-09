@@ -20,18 +20,23 @@ class SearchScreen extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding:  EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
+            padding:
+                const EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
             child: TextField(
               cursorColor: LightThemeColor.blueTwo,
-              style: TextStyle(color: LightThemeColor.blueOne, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  color: LightThemeColor.blueOne, fontWeight: FontWeight.w600),
               decoration: InputDecoration(
-                suffixIcon: Icon(Icons.search, color: LightThemeColor.blueTwo,),
-                hintText: "Search",
-                hintStyle: TextStyle(color: LightThemeColor.blueTwo)
-              ),
+                  suffixIcon: Icon(
+                    Icons.search,
+                    color: LightThemeColor.blueTwo,
+                  ),
+                  hintText: "Search",
+                  hintStyle: TextStyle(color: LightThemeColor.blueTwo)),
             ),
           ),
-          Expanded(child: ListView.builder(
+          Expanded(
+              child: ListView.builder(
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
@@ -75,9 +80,9 @@ class SearchScreen extends StatelessWidget {
                                     .textTheme
                                     .titleSmall!
                                     .copyWith(
-                                  color: LightThemeColor.blueOne
-                                      .withOpacity(0.5),
-                                ),
+                                      color: LightThemeColor.blueOne
+                                          .withAlpha(127),
+                                    ),
                               ),
                             ],
                           ),
