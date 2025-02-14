@@ -10,6 +10,7 @@ import 'package:audio_drop/controllers/nav_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../app_utils/light_theme_color.dart';
+import '../../controllers/audio_fetch_controller.dart';
 
 class NavigatorWidget extends StatelessWidget {
   NavigatorWidget({super.key});
@@ -223,7 +224,18 @@ class NavigatorWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.find<AudioPayController>().play(
+                                  Get.find<AudioFetchController>()
+                                      .audios[Get.find<AudioPayController>()
+                                              .index !=
+                                          0
+                                      ? Get.find<AudioPayController>().index - 1
+                                      : Get.find<AudioPayController>().index],
+                                  Get.find<AudioPayController>().index != 0
+                                      ? Get.find<AudioPayController>().index - 1
+                                      : Get.find<AudioPayController>().index);
+                            },
                             style: IconButton.styleFrom(
                                 backgroundColor: LightThemeColor.blueOne),
                             icon: Icon(
@@ -252,7 +264,25 @@ class NavigatorWidget extends StatelessWidget {
                               ));
                         }),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.find<AudioPayController>().play(
+                                Get.find<AudioFetchController>().audios[
+                                    Get.find<AudioPayController>().index !=
+                                            Get.find<AudioFetchController>()
+                                                    .audios
+                                                    .length -
+                                                1
+                                        ? Get.find<AudioPayController>().index +
+                                            1
+                                        : Get.find<AudioPayController>().index],
+                                Get.find<AudioPayController>().index !=
+                                        Get.find<AudioFetchController>()
+                                                .audios
+                                                .length -
+                                            1
+                                    ? Get.find<AudioPayController>().index + 1
+                                    : Get.find<AudioPayController>().index);
+                          },
                           style: IconButton.styleFrom(
                               backgroundColor: LightThemeColor.blueOne),
                           icon: Icon(

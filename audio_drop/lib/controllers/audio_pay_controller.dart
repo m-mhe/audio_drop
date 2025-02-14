@@ -26,6 +26,7 @@ class AudioPayController extends GetxController {
     } else {
       _nowPlaying = audio;
       _index = index;
+      await audioPlayer.stop();
       await audioPlayer
           .setAudioSource(AudioSource.uri(Uri.parse(_nowPlaying!.uri!)));
       _audioDuration = audioPlayer.duration;

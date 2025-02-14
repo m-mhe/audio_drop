@@ -34,6 +34,7 @@ class AudioFetchController extends GetxController {
       return;
     } else {
       _audios = await _audioQuery.querySongs(sortType: SongSortType.DATE_ADDED);
+      _audios = _audios.reversed.toList();
       update();
     }
   }

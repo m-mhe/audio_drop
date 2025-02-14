@@ -96,7 +96,7 @@ class AudioPlayerScreen extends StatelessWidget {
                           timeLabelTextStyle: TextStyle(
                               fontSize: 16,
                               color: LightThemeColor.blueTwo,
-                              fontWeight: FontWeight.w600),
+                          fontWeight: FontWeight.w500),
                           timeLabelPadding: 5,
                           barHeight: 12,
                           barCapShape: BarCapShape.round,
@@ -134,24 +134,27 @@ class AudioPlayerScreen extends StatelessWidget {
                                 size: 50,
                                 color: LightThemeColor.blueTwo,
                               )),
-                          GestureDetector(
-                              onTap: () {
-                                if (controller.isPlaying) {
-                                  controller.pause();
-                                } else {
-                                  if (controller.nowPlaying != null) {
-                                    controller.play(controller.nowPlaying!,
-                                        controller.index);
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            child: GestureDetector(
+                                onTap: () {
+                                  if (controller.isPlaying) {
+                                    controller.pause();
+                                  } else {
+                                    if (controller.nowPlaying != null) {
+                                      controller.play(controller.nowPlaying!,
+                                          controller.index);
+                                    }
                                   }
-                                }
-                              },
-                              child: Icon(
-                                controller.isPlaying
-                                    ? Icons.pause_rounded
-                                    : Icons.play_arrow_rounded,
-                                size: 50,
-                                color: LightThemeColor.blueTwo,
-                              )),
+                                },
+                                child: Icon(
+                                  controller.isPlaying
+                                      ? Icons.pause_rounded
+                                      : Icons.play_arrow_rounded,
+                                  size: 50,
+                                  color: LightThemeColor.blueTwo,
+                                )),
+                          ),
                           GestureDetector(
                               onTap: () {
                                 controller.play(
